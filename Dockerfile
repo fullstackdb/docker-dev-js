@@ -1,7 +1,17 @@
-FROM node:alpine
-RUN mkdir -p /var/www && \
-    npm i -g nodemon && \
-    npm -v
-WORKDIR /var/www
+FROM node:9.10.0-alpine
 
-CMD [ "nodemon index.js localhost 8080" ]
+# create a folder
+RUN mkdir -p /usr/src/app
+
+# set the working dir, ./, . will refer to this dir
+WORKDIR /usr/src/app
+
+# just copy everything,
+COPY . .
+
+# run the install
+RUN yarn && \
+    chmod +x entrypoint.sh
+
+EXPOSE 7777
+ENTRYPOINT [ "./entrypoint.sh" ]

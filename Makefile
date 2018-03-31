@@ -1,5 +1,17 @@
 build:
-	@docker build -t develop:node .
+	$(eval tag := $(shell git rev-parse HEAD))
+	@docker build -t nddev:${tag} .
 
 run:
-	@docker run  -v /home/vdzundza/go/src/github.com/docker-dev-js:/var/www -it develop:node
+	$(eval tag := $(shell git rev-parse HEAD))
+	docker run \
+	${ARGS} \
+	-it \
+	--rm \
+	--name node_develop \
+	--mount type=bind,source=${PWD}/src,target=/usr/src/app/src \
+	nddev:${tag}
+
+run-shell:
+		make ARGS=--entrypoint=/bin/sh run
+ 
