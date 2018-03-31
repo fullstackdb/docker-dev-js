@@ -14,4 +14,7 @@ run:
 
 run-shell:
 		make ARGS=--entrypoint=/bin/sh run
+
+deploy-all:
+		@./k8s/scripts/deploy.sh
  
