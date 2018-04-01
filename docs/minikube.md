@@ -1,6 +1,6 @@
 # minikube
 
- (BACK)[./../README.md]
+ [BACK](./../README.md)
 You can start minikube with `minikube start --cpus 8 --memory 4000`
 
 List addons
