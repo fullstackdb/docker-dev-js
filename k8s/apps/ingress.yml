@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: test
+  namespace: my-ns
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+    nginx.org/websocket-services: "app-one-service"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /test
+        backend:
+          serviceName: app-one-service
+          servicePort: 80
+      - path: /debug
+        backend:
+          serviceName: app-one-service
+          servicePort: 9229

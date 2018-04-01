@@ -25,3 +25,18 @@ The folder `src` is attached to the container
 ## Minikube
 
 [Minikube](./docs/minikube.md)
+
+# How to check in the minikube
+```
+eval $(minikube docker-env)
+make build
+make infra
+make deploy-all
+```
+Check load-balancer
+
+```
+make loadbalancer-info
+```
+
+Also supports remote debugging from minikube (I GUESS SHOULD)

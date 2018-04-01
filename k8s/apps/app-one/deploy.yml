@@ -19,5 +19,8 @@ spec:
       - name: node-app-1
         image: {app:master}
         args: ["start",  "app-one"] 
-        ports:
-        - containerPort: 8080
+         ports:
+            - name: http
+              containerPort: 8080
+            - name: ws
+              containerPort: 9229

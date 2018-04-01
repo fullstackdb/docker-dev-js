@@ -13,5 +13,5 @@ COPY . .
 RUN yarn && \
     chmod +x entrypoint.sh
 
-EXPOSE 7777
+EXPOSE 8080 9229
 ENTRYPOINT [ "./entrypoint.sh" ]
