@@ -21,3 +21,7 @@ Second attach the shell (you can run commands inside container)
 
 
 The folder `src` is attached to the container
+
+## Minikube
+
+[Minikube](./docs/minikube.md)
