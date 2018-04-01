@@ -16,5 +16,7 @@ run-shell:
 		make ARGS=--entrypoint=/bin/sh run
 
 deploy-all:
-		@./k8s/scripts/deploy.sh
- 
+		$(eval tag ?= master)
+		kubectl create -f k8s/cluster/namespace.yml
+		@k8s/scripts/collect_deployments.sh --tag=${tag}
+		@kubectl create -f k8s/apps/ingress.yml

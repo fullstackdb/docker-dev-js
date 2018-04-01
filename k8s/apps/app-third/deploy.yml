@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-deployment
+  namespace: my-ns
+  labels:
+    app: node-app-3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-app-3
+  template:
+    metadata:
+      labels:
+        app: node-app-3
+    spec:
+      containers:
+      - name: node-app-3
+        image: {app:master}
+        args: ["start",  "app-third"] 
+        ports:
+        - containerPort: 8080
